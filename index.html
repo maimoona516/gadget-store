@@ -64,11 +64,18 @@ button {
 button:hover {
     background-color: #218838;
 }
+
+
+.product-price {
+    font-size: 1.2em;
+    color: #b12704;
+    margin: 10px 0;
+}
     </style>
 </head>
 <body>
-    <div class="logo-container"></div>
-    <div class="logo-container"> <img src="images/9e041e4b-69a7-49af-b6cf-4f4b45e5993e.jpeg" alt="logo"> </div>
+    <div class="header"></div>
+    <div class="logo-container img"> <img src="images/9e041e4b-69a7-49af-b6cf-4f4b45e5993e.jpeg" alt="logo-container"> </div>
    <header>
   
     <!--include navugation-->
@@ -105,6 +112,7 @@ button:hover {
                         <img src="images/smartphone.html" alt="Smartphone" width="200" height="180">
                         <h2>Latest Smartphone</h2>
                         <p>High-resolution camera, long battery life, and sleek design.</p>
+                        <p class="product-price">$180</p>
                         <button onclick="addToCart('Smartphone')">Add to Cart</button>
             
                     </div>
@@ -117,6 +125,7 @@ button:hover {
                         <img src="images/smartwatch.html" alt="Smartwatch" width="200" height="180" >
                         <h2>Smartwatch</h2>
                         <p>Track your fitness and stay connected with notifications.</p>
+                        <p class="product-price">$30</p>
                         <button onclick="addToCart('Smartwatch')">Add to Cart</button>
                     </div>
                  
@@ -127,11 +136,21 @@ button:hover {
                             <img src="images/laptop.html" alt="Laptop" width="200"  height="180">
                             <h2>Ultrabook Laptop</h2>
                             <p>Powerful performance in a lightweight and portable design.</p>
+                            <p class="product-price">$799</p>
                             <button onclick="addToCart('Laptop')">Add to Cart</button>
                         </div> 
                 </section>
                     </td>
+               <td>
                
+                    <img src="images/earbuds.htmls.jpeg" alt="Wireless Earbuds" width="200" height="180">
+                    <h2 class="product-name">Wireless Earbuds</h2>
+                    <p class="product-description">Experience high-quality sound with our wireless earbuds.
+                        Featuring noise cancellation, long battery life, and a comfortable fit for all-day wear.</p>
+                    <p class="product-price">$99.99</p>
+                    <button onclick="addToCart('Wireless Earbuds', 99.99)">Add to Cart</button>
+                </div>
+               </td>
             
         </tr>
     </table>
