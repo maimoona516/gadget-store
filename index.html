@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Home - E-commerce Gadgets Store</title>
+    <link  rel="stylessheet" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+}
+
+.header  {
+    position: relative;
+    height: 60px;
+    background-color: #f8f9fa;
+    display: flex;
+}
+ nav ul.nav-links { top:10px ;
+right: 10px;
+display: flex;
+list-style-type:none ;
+margin: 0;
+padding:0 ;}
+nav ul.nav-links li a { display:block ;
+padding:10px 15px ;}
+
+.logo-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.logo-container img {
+    height: 100px;
+    width: 100%;
+}
+.gadget {
+    border: 1px solid #ddd;
+    padding: 2px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100;
+    height: 100;
+    
+    
+}
+
+.gadget img {
+    max-width: 20%;
+    height: auto;
+
+    
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+    </style>
+</head>
+<body>
+    
+   <header>
+  
+    <!--include navugation-->
+     <nav>
+       
+        <ul class="nav-links">
+
+            <li> <a href="index.html"> Homepage </a></li><BR/>
+            <li><a href="about.html"> Aboutus </a></li>
+            <li > <a href="contact.html"> Contactus </a></li>
+            <li> <a href="login.html"> login  </a></li>
+            <li> <a href="signup.html"> signup  </a></li>
+
+         
+        </ul>
+    </nav> </header>
+   
+   
+    <main>
+        <h1> Welcome to our E-commerce Gadgets Store</h1>
+        <p> Discover the best products at the best prices! </p>
+       
+        <p></p>
+       
+        <img  src="images/banner.html"  >
+        <h2> Our Gadgets </h2>
+       <section>
+        <div class="gadget">
+            <img src="images/smartphone.html" alt="Smartphone">
+            <h2>Latest Smartphone</h2>
+            <p>High-resolution camera, long battery life, and sleek design.</p>
+            <button onclick="addToCart('Smartphone')">Add to Cart</button>
+
+        </div>
+       </section>
+        <br/>
+        <br/>
+        <br/>
+        <div class="gadget">
+            <img src="images/smartwatch.html" alt="Smartwatch" >
+            <h2>Smartwatch</h2>
+            <p>Track your fitness and stay connected with notifications.</p>
+            <button onclick="addToCart('Smartwatch')">Add to Cart</button>
+        </div>
+        <div class="gadget">
+            <img src="images/laptop.html" alt="Laptop">
+            <h2>Ultrabook Laptop</h2>
+            <p>Powerful performance in a lightweight and portable design.</p>
+            <button onclick="addToCart('Laptop')">Add to Cart</button>
+        </div>
+    </main>
+    
+    <script>
+        function addToCart(item) {
+            alert(item + " has been added to your cart!");
+            // You can extend this function to update the cart in your backend
+        }
+        
+      
+
+    </script>
+
+    </main>
+
+</body>
+</html> 
