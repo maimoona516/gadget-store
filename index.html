@@ -37,11 +37,11 @@ padding:10px 15px ;}
 }
 .gadget {
     border: 1px solid #ddd;
-    padding: 2px;
+    padding: 8px;
     margin-bottom: 20px;
     text-align: center;
-    width: 100;
-    height: 100;
+    width: 500;
+    height: 450;
     
     
 }
@@ -67,7 +67,8 @@ button:hover {
     </style>
 </head>
 <body>
-    
+    <div class="header"></div>
+    <div class="logo-container"> <img src="images/9e041e4b-69a7-49af-b6cf-4f4b45e5993e.jpeg" alt="logo"> </div>
    <header>
   
     <!--include navugation-->
@@ -86,39 +87,57 @@ button:hover {
     </nav> </header>
    
    
-    <main>
+    
         <h1> Welcome to our E-commerce Gadgets Store</h1>
         <p> Discover the best products at the best prices! </p>
-       
-        <p></p>
-       
-        <img  src="images/banner.html"  >
-        <h2> Our Gadgets </h2>
-       <section>
-        <div class="gadget">
-            <img src="images/smartphone.html" alt="Smartphone">
-            <h2>Latest Smartphone</h2>
-            <p>High-resolution camera, long battery life, and sleek design.</p>
-            <button onclick="addToCart('Smartphone')">Add to Cart</button>
 
-        </div>
-       </section>
-        <br/>
-        <br/>
-        <br/>
-        <div class="gadget">
-            <img src="images/smartwatch.html" alt="Smartwatch" >
-            <h2>Smartwatch</h2>
-            <p>Track your fitness and stay connected with notifications.</p>
-            <button onclick="addToCart('Smartwatch')">Add to Cart</button>
-        </div>
-        <div class="gadget">
-            <img src="images/laptop.html" alt="Laptop">
-            <h2>Ultrabook Laptop</h2>
-            <p>Powerful performance in a lightweight and portable design.</p>
-            <button onclick="addToCart('Laptop')">Add to Cart</button>
-        </div>
-    </main>
+       
+        <img  src="images/banner.html" width="1700"  >
+        <h2> Our Gadgets </h2>
+        <table >
+
+        
+        <tr>
+            <td>
+                
+        
+                   <div >
+                        <img src="images/smartphone.html" alt="Smartphone" width="200" height="180">
+                        <h2>Latest Smartphone</h2>
+                        <p>High-resolution camera, long battery life, and sleek design.</p>
+                        <button onclick="addToCart('Smartphone')">Add to Cart</button>
+            
+                    </div>
+                   
+            </td>
+           
+                <td>
+ 
+                    <div >
+                        <img src="images/smartwatch.html" alt="Smartwatch" width="200" height="180" >
+                        <h2>Smartwatch</h2>
+                        <p>Track your fitness and stay connected with notifications.</p>
+                        <button onclick="addToCart('Smartwatch')">Add to Cart</button>
+                    </div>
+                 
+                </td>
+                    <td>
+                    
+                    <div >
+                            <img src="images/laptop.html" alt="Laptop" width="200"  height="180">
+                            <h2>Ultrabook Laptop</h2>
+                            <p>Powerful performance in a lightweight and portable design.</p>
+                            <button onclick="addToCart('Laptop')">Add to Cart</button>
+                        </div> 
+                </section>
+                    </td>
+               
+            
+        </tr>
+    </table>
+       
+       
+    
     
     <script>
         function addToCart(item) {
