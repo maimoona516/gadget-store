@@ -14,10 +14,11 @@ margin: 0;
 padding:0 ;}
 nav ul.nav-links li a { display:block ;
 padding:10px 15px ;}
-.login-page { background-color: blanchedalmond;}
+.login-page { background-color:lightskyblue;}
+
     </style>
 </head>
-<body  class="login-page">
+<body  class="login-page" align="center">
     
      <!--include navugation-->
      <nav>
@@ -31,13 +32,17 @@ padding:10px 15px ;}
     </nav>
     <main>
         <h1> Login</h1>
-        <form action="index.html" method="post">
-            <label for="username"> Username:</label><br/>
+        <form action="index.html" method="post" class="login_cont">
+            <div>
+                <label for="username"> Username:</label>
             <input type="text" id="username" name="username" required>
+            </div>
+           
             <br/>
-            <label for="password"> Password:</label><br/>
-            <input type="password" id="password" name="password" required>
-            <br/>
+            <div><label for="password"> Password:</label>
+                <input type="password" id="password" name="password" required></div>
+           
+            
             <button type="submit"> Login </button>
        
     </main>
