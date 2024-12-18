@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Home - E-commerce Gadgets Store</title>
-    <link  rel="stylessheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/abc42786a9.js" crossorigin="anonymous"></script>
+    <link  rel="stylessheet" href="./style.css">
     <style>
         body {
     font-family: Arial, sans-serif;
 }
-
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .header  {
     position: relative;
-    height: 60px;
-    background-color: #f8f9fa;
+    height: 100px;
+    background-color: lightgrey;
     border-right-width: 2px;
     
 width: 100;
@@ -79,86 +84,488 @@ nav {
     justify-content: space-between;
     text-align: center;
 }
+.big-image {
+    background-size: 100%;
+    background-position: center;
+    object-fit: cover;
+    width: 100%;
+}
+/* Reset Default Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Container for Header Content */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+/* Logo Section */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 70px;
+    width: 70px;
+    object-fit: contain;
+    border-radius: 5px !important;
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Navigation Links */
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #007bff;
+}
+
+/* Icons Section */
+.icons {
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+}
+
+.icons i {
+    transition: color 0.3s;
+}
+
+.icons i:hover {
+    color: #007bff;
+}
+
+/* Main Content Styling */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    background: linear-gradient(to right, #e6f7ff, #ffffff);
+    text-align: center;
+}
+
+main h1 {
+    font-size: 48px;
+    color: #5ba4cf;
+    font-family: 'Georgia', serif;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .icons {
+        justify-content: center;
+    }
+}
+/* Modal Background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark background */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal Content */
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+.close-btn:hover {
+    color: red;
+}
+
+button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Form Styles */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content input {
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.modal-content button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.modal-content button:hover {
+    background-color: #0056b3;
+}
+/* Container for all gadgets */
+.gadget-container {
+    display: flex;
+    flex-direction: row; /* Align gadgets horizontally */
+    justify-content: center; /* Center gadgets horizontally */
+    gap: 20px; /* Space between each gadget */
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background for contrast */
+}
+
+/* Gadget container */
+.gadget-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: center; /* Center gadgets horizontally */
+    gap: 30px; /* Space between gadgets */
+    padding: 20px;
+    background-color: #f3f4f6; /* Light background for contrast */
+}
+
+/* Individual gadget */
+.gadget {
+    position: relative;
+    width: 320px; /* Fixed width for desktop */
+    overflow: hidden;
+    border-radius: 15px; /* Rounded corners */
+    background-color: #ffffff; /* White background */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover animation */
+}
+
+/* Gadget hover effect */
+.gadget:hover {
+    transform: translateY(-10px); /* Slight lift on hover */
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.25); /* Stronger shadow on hover */
+}
+
+/* Image inside gadget */
+.gadget img {
+    width: 300px; /* Make the image responsive */
+    height: 70px;
+    border-bottom: 1px solid #ddd; /* Border separating image and details */
+    transition: transform 0.3s ease; /* Smooth zoom effect on hover */
+}
+
+/* Image hover effect */
+.gadget:hover img {
+    transform: scale(1.1); /* Zoom image slightly */
+}
+
+/* Product details */
+.gadget h2 {
+    font-size: 1.5em;
+    margin: 15px 0;
+    text-align: center;
+    color: #333333;
+}
+
+.product-price {
+    font-size: 1.2em;
+    color: #555555;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Add to Cart button */
+.gadget button {
+    display: block;
+    margin: 10px auto 20px; /* Center button */
+    background-color: #007bff; /* Blue button */
+    color: #ffffff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px; /* Rounded button */
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for button */
+.gadget button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .gadget {
+        width: 90%; /* Take most of the width on smaller screens */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .gadget {
+        width: 45%; /* Two items per row on medium screens */
+    }
+}
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #ffa500;
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section a {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #ffa500;
+}
+
+.footer-section .social a {
+    display: inline-block;
+    margin-right: 10px;
+    color: #fff;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.footer-section .social a:hover {
+    color: #ffa500;
+}
+
+.footer-bottom {
+    background-color: #222;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+
+
+
+
     </style>
 </head>
 <body>
+
+
+
+ <header>
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="./images/ma.webp" alt="Logo">
+            <h1>MATECH</h1>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav>
+            <ul>
+      
+                <li> <a href="index.html"> Homepage </a></li><BR/>
+                <li><a href="about.html"> Aboutus </a></li>
+            </ul>
+        </nav>
+
+        <!-- Icons -->
+        <div class="icons">
+            <i class="fa fa-search"></i>
+            <i class="fa fa-user" id="user-icon"></i>
+            <i class="fa fa-shopping-cart" onclick="window.location.href='cart.html'"></i>
+
+        </div>
+    </div>
    
-  
-    <!--include navugation-->
-     <nav>
-       <h1> E-commerce</h1>
-        <ul class="nav-links">
+</header>
 
-            <li> <a href="index.html"> Homepage </a></li><BR/>
-            <li><a href="about.html"> Aboutus </a></li>
-            <li > <a href="contact.html"> Contactus </a></li>
-            <li> <a href="login.html"> login  </a></li>
-            <li> <a href="signup.html"> signup  </a></li>
+ <!-- Login Popup (Hidden by Default) -->
+<div id="login-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="close-btn">&times;</span>
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
 
-         
-        </ul>
-    </nav> </header>
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+
+            <button type="submit">Log In</button>
+        </form>
+        <p>Don't have an account? <a href="signup.html">SignUp here</a></p>
+    </div>
+</div>
+
    
    
     
-        <h1> Welcome to our E-commerce Gadgets Store</h1>
-        <p> Discover the best products at the best prices! </p>
 
        
-        <img  src="images/banner.html" width="1700"  >
-        <h2> Our Gadgets </h2>
-        <table  cellpadding="10" cellspacing="66" align="center" >
-
+        <img  src="images/banner.html" class="big-image"  >
+        <div class="gadget-container">
+            <div class="gadget">
+                <img src="./images/smartphone.html" alt="Smartphone">
+                <h2>Latest Smartphone</h2>
+                <p class="product-price">$180</p>
+                <button onclick="addToCart(1)">Add to Cart</button>
+            </div>
+            <div class="gadget">
+                <img src="./images/smartwatch.html" alt="Smartwatch">
+                <h2>Smartwatch</h2>
+                <p class="product-price">$30</p>
+                <button onclick="addToCart(2)">Add to Cart</button>
+            </div>
+            <div class="gadget">
+                <img src="./images/laptop.html" alt="Ultrabook Laptop">
+                <h2>Ultrabook Laptop</h2>
+                <p class="product-price">$799</p>
+                <button onclick="addToCart(3)">Add to Cart</button>
+            </div>
+            <div class="gadget">
+                <img src="./images/earbuds.htmls.jpeg" alt="Wireless Earbuds">
+                <h2>Wireless Earbuds</h2>
+                <p class="product-price">$99.99</p>
+                <button onclick="addToCart(4)">Add to Cart</button>
+            </div>
+            <div class="gadget">
+                <img src="images/tablet.jpg" alt="Tablet">
+                <h2>High-Performance Tablet</h2>
+                <p class="product-price">$399</p>
+                <button onclick="addToCart(5)">Add to Cart</button>
+            </div>
+            <div class="gadget">
+                <img src="images/headphones.jpg" alt="Headphones">
+                <h2>Noise-Cancelling Headphones</h2>
+                <p class="product-price">$199</p>
+                <button onclick="addToCart(6)">Add to Cart</button>
+            </div>
+        </div>
         
-        <tr>
-            <td>
-                
         
-                   <div >
-                        <img src="images/smartphone.html" alt="Smartphone" width="200" height="180">
-                        <h2>Latest Smartphone</h2>
-                       
-                        <p class="product-price">$180</p>
-                        <button onclick="addToCart('Smartphone')">Add to Cart</button>
-            
-                    </div>
-                   
-            </td>
-           
-                <td>
- 
-                    <div >
-                        <img src="images/smartwatch.html" alt="Smartwatch" width="200" height="180" >
-                        <h2>Smartwatch</h2>
-                        <p class="product-price">$30</p>
-                        <button onclick="addToCart('Smartwatch')">Add to Cart</button>
-                    </div>
-                 
-                </td>
-                    <td>
-                    
-                    <div >
-                            <img src="images/laptop.html" alt="Laptop" width="200"  height="180">
-                            <h2>Ultrabook Laptop</h2>
-                          
-                            <p class="product-price">$799</p>
-                            <button onclick="addToCart('Laptop')">Add to Cart</button>
-                        </div> 
-                </section>
-                    </td>
-               <td>
-               
-                    <img src="images/earbuds.htmls.jpeg" alt="Wireless Earbuds" width="200" height="180">
-                    <h2 class="product-name">Wireless Earbuds</h2>
-                    
-                    <p class="product-price">$99.99</p>
-                    <button onclick="addToCart('Wireless Earbuds', 99.99)">Add to Cart</button>
-                </div>
-               </td>
-            
-        </tr>
-    </table>
-       
+        
        
     
     
@@ -171,8 +578,101 @@ nav {
       
 
     </script>
+    <script>
+        const products = [
+            { id: 1, name: 'Smartphone', price: 180, img: 'images/smartphone.html' },
+            { id: 2, name: 'Smartwatch', price: 30, img: 'images/smartwatch.html' },
+            { id: 3, name: 'Ultrabook Laptop', price: 799, img: 'images/laptop.html' },
+            { id: 4, name: 'Wireless Earbuds', price: 99.99, img: 'images/earbuds.htmls.jpeg' }
+        ];
+    
+        // Render products on the page
+        function displayProducts() {
+            let productContainer = document.getElementById('productContainer');
+            productContainer.innerHTML = products.map(product => `
+                <div class="gadget">
+                    <img src="${product.img}" alt="${product.name}" width="200" height="180">
+                    <h2>${product.name}</h2>
+                    <p class="product-price">$${product.price}</p>
+                    <button onclick="addToCart(${product.id})">Add to Cart</button>
+                </div>
+            `).join('');
+        }
+        window.onload = displayProducts;
+    </script>
+    
 
     </main>
+<script>    // Get modal elements
+    const userIcon = document.getElementById("user-icon");
+    const modal = document.getElementById("login-modal");
+    const closeBtn = document.getElementById("close-btn");
+    
+    // Show the modal when the user icon is clicked
+    userIcon.addEventListener("click", () => {
+        modal.style.display = "flex"; // Show modal
+    });
+    
+    // Close the modal when the close button is clicked
+    closeBtn.addEventListener("click", () => {
+        modal.style.display = "none"; // Hide modal
+    });
+    
+    // Close the modal if user clicks outside the modal content
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });</script>
+    
 
+    <!-- Link to JavaScript -->
+    <script src="./login.js"></script>
+
+    <script src="./auth.js"></script>
+    
+    <script src="./cart.js"></script>
+   
+    <footer>
+        <div class="footer-container">
+            <!-- About Section -->
+            <div class="footer-section about">
+                <h3>About MATECH</h3>
+                <p>MATECH offers the latest gadgets at unbeatable prices. From smartphones to laptops, we’ve got it all.</p>
+            </div>
+    
+            <!-- Quick Links -->
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="cart.html">My Cart</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+    
+            <!-- Contact Info -->
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p><i class="fa fa-phone"></i> +1 234 567 890</p>
+                <p><i class="fa fa-envelope"></i> support@matech.com</p>
+                <p><i class="fa fa-map-marker"></i> 123 Gadget Lane, Tech City, USA</p>
+            </div>
+    
+            <!-- Social Media -->
+            <div class="footer-section social">
+                <h3>Follow Us</h3>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 MATECH. All rights reserved.</p>
+        </div>
+    </footer>
+     
 </body>
 </html> 

@@ -1,54 +1,112 @@
 html
-<!-- cart.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Cart</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html">Login & Signup</a></li>
-            <li><a href="cart.html">Cart</a></li>
-        </ul>
-    </nav>
-    
-    <main>
-        <h1>Your Shopping Cart</h1>
-        <div id="cart-items">
-            <!-- Cart items will be dynamically added here -->
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="./images/ma.webp" alt="Logo">
+                <h1>MATECH</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Homepage</a></li>
+                    <li><a href="./about.html">About Us</a></li>
+                </ul>
+            </nav>
         </div>
-        <button onclick="checkout()">Proceed to Checkout</button>
+    </header>
+
+    <!-- Cart Section -->
+    <main>
+        <div id="cart-container"></div> <!-- This is where cart items will be shown -->
+        <div>
+            <h2>Total Amount: <span id="total-amount">$0.00</span></h2> <!-- This will show the total -->
+        </div>
+        <button onclick="window.location.href='checkout.html'">Proceed to Checkout</button>
     </main>
     
+    <script src="./cart.js"></script> <!-- Include your cart script -->
+
     <script>
-        function loadCart() {
-            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-            const cartContainer = document.getElementById(cartItems);
-            cartContainer.innerHTML = '';
-            if (cartItems.length === 3) {
-                cartContainer.innerHTML = '<p>Your cart is empty.</p>';
-            } else {
-                cartItems.forEach(item => {
-                    const div = document.createElement('laptop');
-                    div.textContent = `${laptop} - $${55,500}`;
-                    cartContainer.appendChild(div);
-                });
-            }
-        }
+        // Fetch cart from localStorage and display it
+        // Function to display items in the cart
+function displayCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || []; // Get cart from localStorage
+    const cartContainer = document.getElementById('cart-container');
+    const totalAmountElement = document.getElementById('total-amount');
 
-        function checkout() {
-            alert('Proceeding to checkout...');
-            // Add your checkout logic here
-        }
+    // If the cart is empty, display a message
+    if (cart.length === 0) {
+        cartContainer.innerHTML = '<p>Your cart is empty!</p>';
+        totalAmountElement.textContent = '$0.00';
+        return;
+    }
 
-        window.onload = loadCart;
+    let totalAmount = 0;
+
+    // Loop through the cart items and display them
+    cartContainer.innerHTML = cart.map(item => {
+        totalAmount += item.price * item.quantity; // Calculate the total price
+
+        return `
+            <div class="cart-item">
+                <img src="${item.img}" alt="${item.name}" width="100" height="100">
+                <h3>${item.name}</h3>
+                <p>Price: $${item.price}</p>
+                <p>
+                    Quantity: 
+                    <button onclick="updateQuantity(${item.id}, -1)">-</button>
+                    ${item.quantity}
+                    <button onclick="updateQuantity(${item.id}, 1)">+</button>
+                </p>
+                <p>Subtotal: $${(item.price * item.quantity).toFixed(2)}</p>
+                <button onclick="removeItem(${item.id})">Remove</button>
+            </div>
+            <hr>
+        `;
+    }).join('');
+
+    totalAmountElement.textContent = `$${totalAmount.toFixed(2)}`; // Update total amount
+}
+
+// Function to update the quantity of an item in the cart
+function updateQuantity(productId, change) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const product = cart.find(item => item.id === productId);
+
+    if (product) {
+        product.quantity += change;
+        if (product.quantity <= 0) {
+            cart = cart.filter(item => item.id !== productId); // Remove item if quantity is 0
+        }
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart)); // Save updated cart
+    displayCart(); // Refresh cart display
+}
+
+// Function to remove an item from the cart
+function removeItem(productId) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart = cart.filter(item => item.id !== productId); // Remove item from cart
+
+    localStorage.setItem('cart', JSON.stringify(cart)); // Save updated cart
+    displayCart(); // Refresh cart display
+}
+
+// Display the cart on page load
+window.onload = displayCart;
+
+
     </script>
 </body>
 </html>

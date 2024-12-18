@@ -3,52 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login & signup</title>
-    <link  rel="stylessheet" href="styles.css">
-    <style>
-         nav ul.nav-links { top:10px ;
-right: 10px;
-display: flex;
-list-style-type:none ;
-margin: 0;
-padding:0 ;}
-nav ul.nav-links li a { display:block ;
-padding:10px 15px ;}
-.sign-up { background-color:lightblue;}
-    </style>
+    <title>Signup</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
-<body class="sign-up" align="center">
-    
-     <!--include navugation-->
-     <nav>
-        <ul class="nav-links">
-            <li> <a href="index.html"> Homepage </a></li>
-            <li><a href="about.html"> Aboutus </a></li>
-            <li > <a href="contact.html"> Contactus </a></li>
-            <li> <a href="login.html"> login  </a></li>
-            <li> <a href="signup.html"> signup </a></li>
-        </ul>
-    </nav>
+<body>  
     <main>
-    </form>
-    <h2> Signup</h2>
-    <form  action="index.html" method="post" class="signup_cont">
-        <div>
-            <label for="new_username"> Username: </label> 
-            <input type="text" id="new_username" name="new_username" required><br/>
-        </div>
-<div>
-    <br/>
-    <label for="new_password"> Password:</label>
+        <h2>Signup</h2>
+        <form id="signup-form">
+          
+            <label for="new_username">Username:</label>
+            <input type="text" id="new_username" name="new_username" required><br>
 
-<input type="password" id="new_password" name="new_password" required>
-</div>
+            <label for="new_password">Password:</label>
+            <input type="password" id="new_password" name="new_password" required><br>
 
-
-<button type="submit"> Signup </button>
-
-
-
-
-    </form>
+            <button type="submit">Signup</button>
+        </form>
     </main>
+
+    <script src="./auth.js">
+        // Get the signup form
+const signupForm = document.getElementById("signup-form");
+
+// Add event listener for form submission
+signupForm.addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Get form values
+    const username = document.getElementById("new_username").value;
+    const password = document.getElementById("new_password").value;
+
+    // (Optional) Save user credentials in localStorage (simulate user signup)
+    localStorage.setItem("username", username);
+    localStorage.setItem("password", password);
+
+    // Redirect to the homepage
+    window.location.href = "index.html"; // Change to your homepage URL
+});
+
+    </script>
+</body>
+</html>
